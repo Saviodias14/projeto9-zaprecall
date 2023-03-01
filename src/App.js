@@ -20,5 +20,6 @@ const Fundo = styled.div`
   height: 100%;
 	background-color: #FB6B6B;
   padding-top: 48px;
+  padding-bottom: 100px;
 `;
 
