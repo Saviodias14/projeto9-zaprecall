@@ -25,8 +25,8 @@ export default App;
 
 const Fundo = styled.div`
   width:100vw;
-  height: 100vh;
+  height: 100%;
 	background-color: #FB6B6B;
   padding-top: 48px;
-  padding-bottom: 40vh;
+  padding-bottom: 100px;
 `
