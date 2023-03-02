@@ -83,9 +83,6 @@ width:100%;
 display:flex;
 flex-direction:column;
 align-items: center;
-img:hover{
-    cursor: pointer;
-}
 `
 
 const Inicio = styled.div`
@@ -106,12 +103,27 @@ p{
     position:${props => props.resposta==='clicado' || props.resposta==='vira' ? 'absolute' : ''};
     left:15px;
     top:18px;
+    color: ${props=>{
+        if(props.resposta==='verde'){
+            return '#2FBE34'
+        }else if(props.resposta==='vermelho'){
+            return '#FF3030'
+        }else if(props.resposta==='laranja'){
+            return '#FF922E'
+        }else{
+            return '#333'
+        }
+    }};
+    text-decoration:${props=>!props.resposta||props.resposta==='clicado'||props.resposta==='vira'?'':'line-through'}
 }
 img{
     position:${props => props.resposta==='clicado' || props.respos==='vira' ? 'absolute' : ''};
     right:15px;
     bottom:6px;
     display:${props => props.resposta==='vira'?'none':'flex'};
+}
+img:hover{
+    cursor: ${props=>!props.resposta||props.resposta==='clicado'||props.resposta==='vira'?'pointer':''};
 }
 div{
     display: ${props => props.resposta!=='vira'? 'none' : 'flex'};
