@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import cards from './listaCards';
 export default function(props){
     return(
-        <Container>
+        <Container inicio={props.inicio}>
             <Concluidos>{props.numeroConclusao}/{cards.length} concluídos</Concluidos>
         </Container>
     )
@@ -14,7 +14,7 @@ bottom:0;
 left:0;
 width: 100%;
 height: 70px;
-display: flex;
+display:${props=>props.inicio?'flex':'none'};
 align-items: center;
 justify-content: center;
 `

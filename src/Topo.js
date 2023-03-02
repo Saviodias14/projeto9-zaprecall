@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 import logo from './assets/logo.png'
-export default function () {
+export default function (props) {
     return (
-        <Container>
+        <Container inicio={props.inicio}>
             <Logo src={logo} />
             <Titulo>ZapRecall</Titulo>
         </Container>
     )
 }
 const Container = styled.div`
-display:flex;
+display:${props=>props.inicio?'flex':'none'};
 align-items: center;
 justify-content: center;
 margin-bottom: 51px;

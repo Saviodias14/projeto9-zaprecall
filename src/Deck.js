@@ -67,7 +67,7 @@ export default function (props) {
     }
 
     return (
-        <Container>
+        <Container inicio={props.inicio}>
             {cards.map((c, i) => <li key={c.answer}>
                 <Inicio resposta={resposta[i]}>
                     <p>{!resposta[i] ||(resposta[i]!=='vira' && resposta[i]!=='clicado')? `Pergunta ${i + 1}` : texto}</p>
@@ -80,7 +80,7 @@ export default function (props) {
 
 const Container = styled.ul`
 width:100%;
-display:flex;
+display:${props=>props.inicio?'flex':'none'};
 flex-direction:column;
 align-items: center;
 `
