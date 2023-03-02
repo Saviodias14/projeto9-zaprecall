@@ -1,14 +1,16 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import Deck from './Deck';
 import Rodape from './Rodape';
 import Topo from './Topo';
 
 function App() {
+  const [numeroConclusao, setNumeroConclusao] = useState(0)
   return (
     <Fundo>
-      <Topo></Topo>
-      <Deck></Deck>
-      <Rodape></Rodape>
+      <Topo/>
+      <Deck setNumeroConclusao={setNumeroConclusao}/>
+      <Rodape numeroConclusao={numeroConclusao}/>
     </Fundo>
   );
 }

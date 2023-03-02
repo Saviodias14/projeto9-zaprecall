@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-export default function(){
+import cards from './listaCards';
+export default function(props){
     return(
         <Container>
-            <Concluidos>0/4 concluídos</Concluidos>
+            <Concluidos>{props.numeroConclusao}/{cards.length} concluídos</Concluidos>
         </Container>
     )
 }
