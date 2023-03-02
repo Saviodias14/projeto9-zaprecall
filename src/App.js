@@ -6,10 +6,13 @@ import Topo from './Topo';
 
 function App() {
   const [numeroConclusao, setNumeroConclusao] = useState(0)
+  function contador(n){
+    setNumeroConclusao(n)
+  }
   return (
     <Fundo>
       <Topo/>
-      <Deck setNumeroConclusao={setNumeroConclusao}/>
+      <Deck contador={contador}/>
       <Rodape numeroConclusao={numeroConclusao}/>
     </Fundo>
   );
