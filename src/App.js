@@ -29,5 +29,5 @@ const Fundo = styled.div`
   height: ${props=>props.inicio?'100%':'100vh'};
 	background-color: #FB6B6B;
   padding-top: 48px;
-  padding-bottom: 100px;
+  padding-bottom: 170px;
 `
