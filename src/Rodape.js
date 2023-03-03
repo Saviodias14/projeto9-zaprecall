@@ -19,11 +19,11 @@ export default function (props) {
         <Container data-test='footer' sequencia={props.sequencia} inicio={props.inicio}>
             <Mensagem numeroConclusao={props.numeroConclusao}>
                 <div>
-                    <img src={sad} />
-                    <h1>Putz...</h1>
+                    <img src={props.sequencia.includes('vermelho')?sad:party} />
+                    <h1>{props.sequencia.includes('vermelho')?'Putz...':'Parabéns!'}</h1>
                 </div>
                 <div>
-                    <p>Ainda faltam alguns...<br />Mas não desanime!</p>
+                    <p>{props.sequencia.includes('vermelho')?'Ainda faltam alguns...':'Você não esqueceu de'}<br />{props.sequencia.includes('vermelho')?'Mas não desanime!':'nenhum flashcard!'}</p>
                 </div>
             </Mensagem>
             <Concluidos>{props.numeroConclusao}/{cards.length} concluídos</Concluidos>
@@ -64,7 +64,7 @@ font-size: 18px;
 line-height: 22px;
 `
 const Mensagem = styled.div`
-display: none;
+display:flex;
 flex-direction: column;
 h1{
     font-family: 'Recursive';
@@ -75,7 +75,7 @@ h1{
     color: #333333;
 }
 div{
-    display:flex;
+    display:${props=>props.numeroConclusao===cards.length?'flex':'none'};
     align-items: center;
     justify-content: center;
     margin-bottom: 14px;

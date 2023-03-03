@@ -14,7 +14,7 @@ const Container= styled.div`
 width:250px;
 display:${props=>!props.inicio?'flex':'none'};
 flex-direction:column;
-margin: 0 auto;
+margin: 60px auto;
 align-items:center;
 img{
     width: 136px;

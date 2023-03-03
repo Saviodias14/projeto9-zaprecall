@@ -26,7 +26,7 @@ export default App;
 
 const Fundo = styled.div`
   width:100vw;
-  height: ${props=>props.inicio?'100%':'100vh'};
+  height: ${props=>props.inicio?'100%':'67vh'};
 	background-color: #FB6B6B;
   padding-top: 48px;
   padding-bottom: 170px;
