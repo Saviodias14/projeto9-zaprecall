@@ -18,6 +18,7 @@ margin-bottom: 51px;
 const Logo = styled.img`
 width: 52px;
 height: 60px;
+margin-right:20px;
 `
 
 const Titulo = styled.h1`

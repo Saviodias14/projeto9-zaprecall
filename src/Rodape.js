@@ -17,7 +17,7 @@ export default function (props) {
     }
     return (
         <Container data-test='footer' sequencia={props.sequencia} inicio={props.inicio}>
-            <Mensagem numeroConclusao={props.numeroConclusao}>
+            <Mensagem data-test='finish-text' numeroConclusao={props.numeroConclusao}>
                 <div>
                     <img src={props.sequencia.includes('vermelho')?sad:party} />
                     <h1>{props.sequencia.includes('vermelho')?'Putz...':'Parabéns!'}</h1>
