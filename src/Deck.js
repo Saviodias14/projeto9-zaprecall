@@ -7,6 +7,7 @@ import erro from './assets/icone_erro.png'
 import quase from './assets/icone_quase.png'
 import styled from "styled-components"
 import { useState } from "react"
+import verificaArray from "./verificaArray"
 function criaArray(tamanho){
     let array = []
     for(let i=0;i<tamanho; i++){
@@ -20,7 +21,7 @@ export default function (props) {
 
     function mostraPergunta(i) {
 
-        if (!resposta[i]) {
+        if (!resposta[i] && verificaArray(resposta,'clicado') && verificaArray(resposta,'vira')) {
             let novoArray = [...resposta]
             novoArray[i] = "clicado"
             setResposta(novoArray)
@@ -65,14 +66,30 @@ export default function (props) {
                 return
         }
     }
+    function escolheDataTest(i){
+        switch(resposta[i]){
+            case '':
+                return 'play-btn'
+            case 'clicado':
+                return 'turn-btn'
+            case 'verde':
+                return 'zap-icon'
+            case 'laranja':
+                return 'partial-icon'
+            case 'vermelho':
+                return 'no-icon'
+            default:
+                return
+        }
+    }
 
     return (
         <Container inicio={props.inicio}>
-            {cards.map((c, i) => <li key={c.answer}>
+            {cards.map((c, i) => <li data-test='flashcard' key={c.answer}>
                 <Inicio resposta={resposta[i]}>
-                    <p>{!resposta[i] ||(resposta[i]!=='vira' && resposta[i]!=='clicado')? `Pergunta ${i + 1}` : texto}</p>
-                    <img onClick={() => mostraPergunta(i)} src={escolheImagem(i)} />
-                    <Botoes pegaResposta={pegaResposta} indice={i} contador={props.contador(numeroDeRespostas())}></Botoes>
+                    <p data-test='flashcard-text'>{!resposta[i] ||(resposta[i]!=='vira' && resposta[i]!=='clicado')? `Pergunta ${i + 1}` : texto}</p>
+                    <img data-test={escolheDataTest(i)} onClick={() => mostraPergunta(i)} src={escolheImagem(i)} />
+                    <Botoes setSequencia={props.setSequencia} sequencia={props.sequencia} pegaResposta={pegaResposta} indice={i} contador={props.contador(numeroDeRespostas())}></Botoes>
                 </Inicio></li>)}
         </Container>
     )

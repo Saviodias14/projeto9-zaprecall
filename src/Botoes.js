@@ -1,10 +1,24 @@
 import styled from "styled-components"
 export default function (props) {
+    function criaSequencia(sequencia, cor) {
+        let ultimasCores = [...sequencia]
+        ultimasCores.push(cor)
+        return ultimasCores
+    }
     return (
         <div>
-            <Vermelho onClick={()=>props.pegaResposta("vermelho", props.indice)}>Não lembrei</Vermelho>
-            <Laranja onClick={()=>props.pegaResposta("laranja", props.indice)}>Quase não lembrei</Laranja>
-            <Verde onClick={()=>props.pegaResposta("verde", props.indice)}>Zap!</Verde>
+            <Vermelho data-test='no-btn' onClick={() => {
+                props.pegaResposta("vermelho", props.indice)
+                props.setSequencia(criaSequencia(props.sequencia, 'vermelho'))
+            }}>Não lembrei</Vermelho>
+            <Laranja data-test='partial-btn' onClick={() => {
+                props.pegaResposta("laranja", props.indice)
+                props.setSequencia(criaSequencia(props.sequencia, 'laranja'))
+            }}>Quase não lembrei</Laranja>
+            <Verde data-test='zap-btn' onClick={() => {
+                props.pegaResposta("verde", props.indice)
+                props.setSequencia(criaSequencia(props.sequencia, 'verde'))
+            }}>Zap!</Verde>
         </div>
     )
 }

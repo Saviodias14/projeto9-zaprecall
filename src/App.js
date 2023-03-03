@@ -8,15 +8,16 @@ import Topo from './Topo';
 function App() {
   const [numeroConclusao, setNumeroConclusao] = useState(0)
   const [inicio, setInicio] = useState(false)
+  const [sequencia, setSequencia] = useState([])
   function contador(n){
     setNumeroConclusao(n)
   }
   return (
-    <Fundo>
+    <Fundo inicio={inicio}>
       <TelaInicial inicio={inicio} setInicio={setInicio}/>
       <Topo inicio={inicio}/>
-      <Deck inicio={inicio} contador={contador}/>
-      <Rodape inicio={inicio} numeroConclusao={numeroConclusao}/>
+      <Deck setSequencia={setSequencia} sequencia={sequencia} inicio={inicio} contador={contador}/>
+      <Rodape sequencia={sequencia} inicio={inicio} numeroConclusao={numeroConclusao}/>
     </Fundo>
   );
 }
@@ -25,7 +26,7 @@ export default App;
 
 const Fundo = styled.div`
   width:100vw;
-  height: 100%;
+  height: ${props=>props.inicio?'100%':'100vh'};
 	background-color: #FB6B6B;
   padding-top: 48px;
   padding-bottom: 100px;
